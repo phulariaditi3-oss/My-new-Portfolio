@@ -1,0 +1,515 @@
+/* Certificates Showcase & Digital Template Styles */
+
+.certificates-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 3rem auto;
+    color: var(--text-secondary);
+}
+
+.certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
+
+/* Certificate Card Preview (Interactive 3D wrapper) */
+.cert-card-perspective {
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.cert-card-3d {
+    position: relative;
+    width: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.cert-card-inner {
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-primary);
+    transition: box-shadow var(--transition-normal);
+}
+
+.cert-card-inner:hover {
+    box-shadow: var(--shadow-lg), var(--shadow-glow);
+}
+
+/* Small scale visual preview inside grids */
+.cert-thumbnail-wrapper {
+    position: relative;
+    padding: 1.5rem;
+    background: #0f172a; /* Deep navy backboard */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cert-thumbnail-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(167, 139, 250, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+    z-index: 5;
+    backdrop-filter: blur(4px);
+}
+
+.cert-card-perspective:hover .cert-thumbnail-overlay {
+    opacity: 1;
+}
+
+.cert-overlay-btn {
+    padding: 0.5rem 1.25rem;
+    background-color: #FFFFFF;
+    color: #1A1A1A;
+    border-radius: var(--border-radius-full);
+    font-size: 0.85rem;
+    font-weight: 700;
+    box-shadow: var(--shadow-sm);
+    transform: translateY(10px);
+    transition: all var(--transition-normal);
+}
+
+.cert-card-perspective:hover .cert-overlay-btn {
+    transform: translateY(0);
+}
+
+.cert-info-footer {
+    padding: 1.5rem;
+    background-color: var(--bg-card);
+    border-top: 1px solid var(--border-color);
+}
+
+.cert-tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.cert-title-text {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: var(--text-primary);
+}
+
+.cert-event-name {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   HIGH FIDELITY DIGITAL CERTIFICATE STYLING (A4 Landscape aspect: 1.414)
+   ========================================================================== */
+.digital-cert-container {
+    width: 100%;
+    aspect-ratio: 1.414; /* Standard A4 paper proportions */
+    background: #FFFFFF;
+    color: #0f172a;
+    padding: 2.5rem;
+    position: relative;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    border-radius: 4px;
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+/* Outer Border - Elegant Navy/Slate */
+.digital-cert-outer-border {
+    width: 100%;
+    height: 100%;
+    border: 14px solid #1e293b; /* Deep slate outer border */
+    position: relative;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Inner Border - Gold Pattern */
+.digital-cert-inner-border {
+    width: 100%;
+    height: 100%;
+    border: 3px double #d97706; /* Golden double border */
+    position: relative;
+    padding: 2rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #fcfbf7; /* Creamy paper texture background */
+}
+
+/* Corner Flourishes using borders & pseudo elements */
+.cert-corner {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border: 3px solid #d97706;
+    z-index: 10;
+}
+
+.cert-corner-tl { top: 6px; left: 6px; border-right: none; border-bottom: none; }
+.cert-corner-tr { top: 6px; right: 6px; border-left: none; border-bottom: none; }
+.cert-corner-bl { bottom: 6px; left: 6px; border-right: none; border-top: none; }
+.cert-corner-br { bottom: 6px; right: 6px; border-left: none; border-top: none; }
+
+/* Certificate Header Details */
+.cert-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid rgba(217, 119, 6, 0.2);
+    padding-bottom: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.cert-header-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cert-header-right {
+    text-align: right;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cert-inst-logo {
+    width: 55px;
+    height: 55px;
+    background-color: #1e293b;
+    border-radius: var(--border-radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fef08a; /* Gold text */
+    font-size: 1.5rem;
+    border: 2px solid #d97706;
+}
+
+.cert-inst-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.cert-inst-trust {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #d97706;
+    letter-spacing: 1px;
+}
+
+.cert-inst-name {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1e293b;
+    letter-spacing: -0.25px;
+}
+
+.cert-inst-loc {
+    font-size: 0.75rem;
+    color: #64748b;
+    font-weight: 600;
+    margin-top: -2px;
+}
+
+.cert-iso-badge {
+    font-size: 0.6rem;
+    font-weight: 700;
+    padding: 0.2rem 0.5rem;
+    border: 1px solid #cbd5e1;
+    color: #64748b;
+    border-radius: 4px;
+    margin-top: 0.25rem;
+    display: inline-block;
+    max-width: fit-content;
+}
+
+/* Certificate Body Details */
+.cert-body {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+    gap: 0.5rem;
+}
+
+.cert-main-title {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #1e293b;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, #1e293b, #d97706);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cert-introduction {
+    font-size: 0.95rem;
+    color: #475569;
+    font-style: italic;
+}
+
+.cert-candidate-name {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0.5rem 0;
+    border-bottom: 1px dashed #d97706;
+    display: inline-block;
+    padding: 0 2rem;
+    position: relative;
+}
+
+.cert-achievement-text {
+    font-size: 0.95rem;
+    color: #475569;
+    line-height: 1.6;
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.cert-achievement-text strong {
+    color: #1e293b;
+    font-weight: 700;
+}
+
+.cert-highlight-award {
+    background-color: rgba(217, 119, 6, 0.1);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    border: 1px solid rgba(217, 119, 6, 0.2);
+}
+
+/* Certificate Footer Signatures */
+.cert-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 1.5rem;
+}
+
+.cert-footer-left {
+    font-size: 0.75rem;
+    color: #64748b;
+    text-align: left;
+}
+
+.cert-meta-item {
+    margin-bottom: 0.25rem;
+}
+
+.cert-meta-item strong {
+    color: #475569;
+}
+
+.cert-signatures {
+    display: flex;
+    gap: 4rem;
+}
+
+.cert-sig-block {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 140px;
+}
+
+.cert-sig-graphic {
+    font-family: var(--font-signature);
+    font-size: 1.6rem;
+    color: #1d4ed8; /* Blue ink representation */
+    height: 40px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    position: relative;
+    user-select: none;
+}
+
+.cert-sig-graphic::after {
+    content: '';
+    position: absolute;
+    width: 120%;
+    height: 1px;
+    background-color: #cbd5e1;
+    bottom: 0;
+}
+
+.cert-sig-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-top: 0.5rem;
+}
+
+.cert-sig-name {
+    font-size: 0.65rem;
+    color: #64748b;
+}
+
+/* Official SVG Badge Seal */
+.cert-seal-wrapper {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cert-gold-seal {
+    width: 75px;
+    height: 75px;
+    filter: drop-shadow(0 4px 8px rgba(217, 119, 6, 0.25));
+}
+
+/* ==========================================================================
+   MODAL CERTIFICATE VIEWER STYLING
+   ========================================================================== */
+.cert-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2000;
+    background-color: rgba(10, 8, 18, 0.9);
+    backdrop-filter: blur(15px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-normal) ease;
+}
+
+.cert-modal.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.cert-modal-content {
+    width: 90%;
+    max-width: 950px;
+    position: relative;
+    transform: scale(0.9);
+    transition: transform var(--transition-normal) ease;
+}
+
+.cert-modal.active .cert-modal-content {
+    transform: scale(1);
+}
+
+.cert-modal-close {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    color: #FFFFFF;
+    font-size: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    width: 40px;
+    height: 40px;
+    border-radius: var(--border-radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+}
+
+.cert-modal-close:hover {
+    background-color: var(--color-accent);
+    transform: rotate(90deg);
+}
+
+.cert-modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.btn-print {
+    background: linear-gradient(135deg, #d97706, #b45309);
+    color: #FFFFFF;
+    box-shadow: 0 4px 14px rgba(217, 119, 6, 0.3);
+}
+
+.btn-print:hover {
+    background: linear-gradient(135deg, #b45309, #92400e);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(217, 119, 6, 0.5);
+}
+
+/* ==========================================================================
+   CSS PRINT MODE CONFIGURATION
+   ========================================================================== */
+@media print {
+    /* Hide all layout containers and web interfaces */
+    body * {
+        visibility: hidden;
+    }
+    
+    html, body {
+        background-color: #FFFFFF !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        height: auto !important;
+        overflow: visible !important;
+    }
+
+    /* Target ONLY the modal certificate container and force it to be visible */
+    #print-target-cert,
+    #print-target-cert * {
+        visibility: visible;
+    }
+
+    #print-target-cert {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100% !important;
+        height: 100% !important;
+        aspect-ratio: 1.414 !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 2cm !important; /* Proper margin margins for document prints */
+        box-sizing: border-box;
+    }
+
+    /* Force landscape paper printing */
+    @page {
+        size: landscape;
+        margin: 0;
+    }
+}
